@@ -27,11 +27,7 @@ jobs:
               export ALGO=$(cat archivo | xargs)
               echo "::set-output name=version::$VERSION"
 
-      - name: Listar variable
-        run: |
-              env | grep ALGO
-
       - name: Usar variable
         run: |
-              mkdir ${ALGO}
+              mkdir ${{ steps.set.outputs.version }}
               ls -lartsh
