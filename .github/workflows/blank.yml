@@ -25,7 +25,7 @@ jobs:
         id: set
         run: |
               export ALGO=$(cat archivo | xargs)
-              echo "::set-output name=version::$VERSION"
+              echo "::set-output name=version::$ALGO"
 
       - name: Usar variable
         run: |
