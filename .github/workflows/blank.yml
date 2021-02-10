@@ -22,10 +22,16 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setear variable
-        with:
-          args: foooo
+        id: set
         run: |
               export ALGO=$(cat archivo | xargs)
+              echo "::set-output name=version::$VERSION"
+
+      - name: Listar variable
+        run: |
               env | grep ALGO
+
+      - name: Usar variable
+        run: |
               mkdir ${ALGO}
-              ls
+              ls -lartsh
