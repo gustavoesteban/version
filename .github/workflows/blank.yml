@@ -24,12 +24,6 @@ jobs:
       - name: Setear variable
         run: |
               export ALGO=$(cat archivo | xargs)
-
-      - name: Ver variable
-        run: |
               env | grep ALGO
-
-      - name: Usar
-        run: |
               mkdir ${ALGO}
               ls
